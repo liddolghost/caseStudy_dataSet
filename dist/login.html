@@ -5,8 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>༊*·˚Login</title>
-  <link rel="icon" type="image/x-icon" href="Picture1.ico">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style1.css">
   <script defer src="./bundle.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
   <!-- Bootstrap theme -->
@@ -32,77 +31,14 @@
                     <div class="inputBox">
                       <button type="button" id="login" name="login" class="btn btn-success">Login</button>
                     </div>
-                    <p class="forget">No account yet ? <a href="index.html">Register</a></p>
+                    <p class="forget"><a href="index.html">Go back</a></p>
                 </form>
             </div>	
           </div>
     </div>
   </section>
-    
+  <script src="./app.js" type="module"></script>
+  <script src="./login.js" type="module"></script>
+
 </body>
-
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
-
-  const firebaseConfig = {
-  apiKey: "AIzaSyCzf803qRjCMmK9wGhzPs68WLUZKr-M42M",
-  authDomain: "casestudy-1c77a.firebaseapp.com",
-  projectId: "casestudy-1c77a",
-  storageBucket: "casestudy-1c77a.appspot.com",
-  messagingSenderId: "743404711750",
-  appId: "1:743404711750:web:fffdbd353973f645397f47",
-  measurementId: "G-YX6H49NVFB"
-};
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const auth = getAuth();
-  console.log(app);
-
-  
-
-
-  //----- Login code start	  
-  document.getElementById("login").addEventListener("click", function() {
-      var email =  document.getElementById("login_email").value;
-      var password = document.getElementById("login_password").value;
-
-      signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        console.log(user);
-        alert(user.email+" Login successfully!!!");
-         window.location.href = "home.html";
-        document.getElementById('logout').style.display = 'block';
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage);
-        alert(errorMessage);
-      });		  		  
-  });
-  //----- End
-
-  //----- Logout code start	  
-  document.getElementById("logout").addEventListener("click", function() {
-      signOut(auth).then(() => {
-          // Sign-out successful.
-          console.log('Sign-out successful.');
-          alert('Sign-out successful.');
-          document.getElementById('logout').style.display = 'none';
-        }).catch((error) => {
-          // An error happened.
-          console.log('An error happened.');
-        });		  		  
-  });
-  //----- End
-
-</script>
 </html>

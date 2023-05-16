@@ -1,138 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>༊*·˚Registration</title>
-    <link rel="icon" type="image/x-icon" href="Picture1.ico">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <title>༊*·˚Covid-19</title>
     <script defer src="./bundle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
-    <script src="https://kit.fontawesome.com/edf086d819.js" crossorigin="anonymous"></script>
-    <!-- Bootstrap theme -->
-</head>
-<body>
-    <section>
-          <div class="box"> 
-              <div class="square" style="--i:0;"></div>
-              <div class="square" style="--i:1;"></div>
-              <div class="square" style="--i:2;"></div>
-              <div class="square" style="--i:3;"></div>
-              <div class="square" style="--i:4;"></div>
-              <div class="container">
-                  <div class="form">
-                      <h2>Registration Form</h2>
-                      <form name="registration_form" id="registration_form" method="post" action="#" enctype="multipart/form-data" >
-                          <div class="inputBox">
-                            <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email">
-                          </div>
-                          <div class="inputBox">
-                            <input type="password" name="password" id="password" class="form-control"  placeholder="Enter your password">
-                          </div>
-                          <div class="inputBox">
-                            <button type="button" id="register" name="register" class="btn btn-success">Register Now</button>
-                          </div>
-                          <p class="forget">Already have an account ? <a href="login.html">Login</a> </p>
-                      </form>
-                      <!--
-                      <p>or sign up with</p>
-                      <div class="social-icon-google"><span class="fa fa-google"></span></div>
-                      -->
-                  </div>
-              </div>
+  </head>
+  <body onload="bodyLoaded()">
+    <div class="preloader"></div>
+    <div class="scrollToTop"></div>
+    <nav>
+      <div class="container">
+        <div class="brand">
+          <div class="logo">
+            <img src="assets/Logo.png" alt="" />
           </div>
-      </section>
+          <div class="responsive-toggle">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
 
-</body>
-</html> 
+        <div class="links">
+          <ul>
+            <li><a href="#about" id="nav-link">Overview</a></li>
+            <li><a href="#contagion" id="nav-link">Contagion</a></li>
+            <li><a href="#symptoms" id="nav-link">Symptoms</a></li>
+            <li><a href="#solution" id="nav-link">Prevention</a></li>
+            <li><a href="#dataset" id="nav-link">Data Set</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="starter">
+      <div class="info">
+        <h3 class="subTitle">COVID-19 Alert</h3>
+        <h1 class="title">Stay At Home Quarantine To Stop Corona Virus</h1>
+        <h5 class="description">
+          There is No Specific Medicine To Prevent Or Treat Coronavirus Disease
+          (COVID-19). People May Need Supportive Care To.
+        </h5>
+      </div>
+      <div class="image">
+        <img src="assets/starter.png" alt="" />
+      </div>
+    </section>
+    <section class="about" id="about">
+      <div class="image">
+        <img src="assets/whatIsCovid.png" alt="" />
+      </div>
+      <div class="info">
+        <h4 class="subTitle">What Is Covid-19</h4>
+        <h2 class="title">Coronavirus</h2>
+        <p class="description">
+          Corona Viruses are a type of Virus. There are many different kinds,
+          and some cause disease. A newly identified type has caused a recent
+          outbreak of Respiratory illness now called COVID-19.
+        </p>
+        <button>Learn More</button>
+      </div>
+    </section>
+    <section class="contagion" id="contagion">
+      <div class="info">
+        <h4 class="subTitle">Covid-19</h4>
+        <h2 class="title">Contagion</h2>
+        <p class="description">
+          Corona Viruses are a type of virus. There are many different kinds,
+          and some cause disease. A newly identified type.
+        </p>
+      </div>
+      <div class="content">
+        <div class="virus">
+          <img src="assets/virus1.png" alt="" />
+        </div>
+        <div class="cards">
+          <div class="card">
+            <img src="assets/airTransmission.png" alt="" />
+            <div class="text">
+              <h3 class="title">Air Transmission</h3>
+              <p class="description">
+                Objectively evolve tactical expertise before extensible
+                initiatives.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/humanContact.png" alt="" />
+            <div class="text">
+              <h3 class="title">Human Contacts</h3>
+              <p class="description">
+                Washing your hands is one of the simplest ways you can protect.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/containedObject.png" alt="" />
+            <div class="text">
+              <h3 class="title">Air Transmission</h3>
+              <p class="description">
+                Use the tissue while Sneezing. In this Way, You Can Protect Your
+                Droplets.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="symptoms" id="symptoms">
+      <div class="info">
+        <h4 class="subTitle">Covid-19</h4>
+        <h2 class="title">Symptoms</h2>
+        <p class="description">
+          Corona Viruses are a type of virus. There are many different kinds,
+          and some cause disease. A newly identified typepe has Caused a recent
+          outbreak of respiratory.
+        </p>
+      </div>
+      <div class="image">
+        <img src="assets/symptoms.png" alt="" />
+      </div>
+    </section>
+    <section class="solutions" id="solution">
+      <div class="virus">
+        <img src="assets/virus3.png" alt="" />
+      </div>
+      <div class="virus2">
+        <img src="assets/virus1.png" alt="" />
+      </div>
+      <div class="virus3">
+        <img src="assets/virus4.png" alt="" />
+      </div>
 
-
-<script type="module">
-
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-  
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-  apiKey: "AIzaSyCzf803qRjCMmK9wGhzPs68WLUZKr-M42M",
-  authDomain: "casestudy-1c77a.firebaseapp.com",
-  projectId: "casestudy-1c77a",
-  storageBucket: "casestudy-1c77a.appspot.com",
-  messagingSenderId: "743404711750",
-  appId: "1:743404711750:web:fffdbd353973f645397f47",
-  measurementId: "G-YX6H49NVFB"
-};
-  
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const auth = getAuth();
-  console.log(app)
-  
-  
-  //----- New Registration code start	  
-  document.getElementById("register").addEventListener("click", function() {
-    var email =  document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    
-    //For new registration
-    createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      console.log(user);
-      alert("Registration successfully!!");
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-      console.log(errorMessage);
-      alert(error);
-    });		  		  
-  });
-  //----- End
-  
-  //----- Login code start	  
-  document.getElementById("login").addEventListener("click", function() {
-    var email =  document.getElementById("login_email").value;
-    var password = document.getElementById("login_password").value;
-  
-    signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      console.log(user);
-      alert(user.email+" Login successfully!!!");
-      document.getElementById('logout').style.display = 'block';
-      // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage);
-      alert(errorMessage);
-    });		  		  
-  });
-  //----- End
-  
-  //----- Logout code start	  
-  document.getElementById("logout").addEventListener("click", function() {
-    signOut(auth).then(() => {
-      // Sign-out successful.
-      console.log('Sign-out successful.');
-      alert('Sign-out successful.');
-      document.getElementById('logout').style.display = 'none';
-    }).catch((error) => {
-      // An error happened.
-      console.log('An error happened.');
-    });		  		  
-  });
-  //----- End
-  
-  </script>
+      <div class="info">
+        <h4 class="subTitle">Covid-19</h4>
+        <h2 class="title">What Should We Do <span>?</span></h2>
+        <p class="description">
+          Corona Viruses are a type of virus. There are many different kinds,
+          and some cause disease. A newly identified type.
+        </p>
+      </div>
+      <div class="content">
+        <div class="solution">
+          <div class="solution-info">
+            <div class="round">01</div>
+            <div class="info-container">
+              <h2 class="title">Wear Masks</h2>
+              <p class="description">
+                Continually seize impactful vitals rather than future-proof
+                supply chains. Uniquely exploit emerging niches via fully tested
+                meta-services. Competently pursue standards compliant leadership
+                skills vis-a-vis pandemic "Outside the Box" Thinking.
+              </p>
+            </div>
+          </div>
+          <div class="image">
+            <img src="assets/girl1.png" alt="" />
+          </div>
+        </div>
+        <div class="solution">
+          <div class="image">
+            <img src="assets/girl2.png" alt="" />
+          </div>
+          <div class="solution-info">
+            <div class="round">02</div>
+            <div class="info-container">
+              <h2 class="title">Wash your hands</h2>
+              <p class="description">
+                Continually seize impactful vitals rather than future-proof
+                supply chains. Uniquely exploit emerging niches via fully tested
+                meta-services. Competently pursue standards compliant leadership
+                skills vis-a-vis pandemic "Outside the Box" Thinking.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="solution">
+          <div class="solution-info">
+            <div class="round">03</div>
+            <div class="info-container">
+              <h2 class="title">Use Nose - Rag</h2>
+              <p class="description">
+                Continually seize impactful vitals rather than future-proof
+                supply chains. Uniquely exploit emerging niches via fully tested
+                meta-services. Competently pursue standards compliant leadership
+                skills vis-a-vis pandemic "Outside the Box" Thinking.
+              </p>
+            </div>
+          </div>
+          <div class="image">
+            <img src="assets/girl3.png" alt="" />
+          </div>
+        </div>
+        <div class="solution">
+          <div class="image">
+            <img src="assets/girl4.png" alt="" />
+          </div>
+          <div class="solution-info">
+            <div class="round">04</div>
+            <div class="info-container">
+              <h2 class="title">Avoid Contacts</h2>
+              <p class="description">
+                Continually seize impactful vitals rather than future-proof
+                supply chains. Uniquely exploit emerging niches via fully tested
+                meta-services. Competently pursue standards compliant leadership
+                skills vis-a-vis pandemic "Outside the Box" Thinking.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="logo">
+        <img src="assets/Logo.png" alt="" />
+      </div>
+      <div class="links">
+        <ul>
+            <p class="forget">Admin? log in <a href="login.html">here</a> </p>
+        </ul>
+      </div>
+      <div class="social-links">
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </footer>
+    <span class="copyright">2023 &copy; All rights reserved </span>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
