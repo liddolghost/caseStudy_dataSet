@@ -54,7 +54,7 @@ export function  login(email, password) {
     const user = userCredential.user;
     console.log(user);
     alert(user.email+" Login successfully!!!");
-     window.location.href = "covid.html";
+     window.location.href = "admin_dashboard.html";
   })
   .catch((error) => {
     const errorCode = error.code;

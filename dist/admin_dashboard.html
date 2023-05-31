@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>༊*·˚Admin Dashboard</title>
+
+    <!-- Style Sheets -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/dashstyle.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+
+    <!-- Bundle.js Script -->
+    <script defer src="./bundle.js"></script>
+
+    <!-- Bootstrap and Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>  
+    <script src="https://kit.fontawesome.com/334c45a40c.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <!-- Firebase Data to DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+
+    <!-- jQuery , DataTables , Bootstrap CSS , css3 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="/css/custom.css">
+    
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="main-container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="flash-outline"></ion-icon></span>
+                        <span class="title">Wattsapp</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin_dashboard.html">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="analytics.html">
+                        <span class="icon"><ion-icon name="stats-chart-outline"></ion-icon></span>
+                        <span class="title">Visualization</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dataList.html">
+                        <span class="icon"><ion-icon name="file-tray-full-outline"></ion-icon></ion-icon></span>
+                        <span class="title">Data Set</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="logout">
+                        <span class="icon" ><ion-icon name="log-out-outline"></ion-icon></span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- MAIN -->
+
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                
+                <!-- userImg -->
+                <div class="user">
+                    <img src="img/profile.png">
+                </div>
+            </div>
+
+            <!-- cards -->
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers" id="count">Calculating</div>
+                        <div class="cardName">Appliances</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="bulb-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers" id="total">Calculating</div>
+                        <div class="cardName">Total Consumption</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="flash-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers" id="consumption">Calculating</div>
+                        <div class="cardName">Average Consumption</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="flash-outline"></ion-icon>
+                    </div>
+                </div>
+                <!-- <div class="card">
+                    <div>
+                        <div class="numbers">Null</div>
+                        <div class="cardName">Null</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="flash-off-outline"></ion-icon>
+                    </div>
+                </div> -->
+                
+            </div>
+
+            <div class="details">
+                <!-- Order details list -->
+                <div class="recentRecords">
+                    <div class="cardHeader">
+                        <h2> Covid-19 Country Test Record</h2>
+                        <a href="dataList.html" class="view-btn">View All</a>
+                    </div>
+                    <table id="myTable" class="display">
+                        <thead>
+                          <tr>
+                            <th>ISO Code</th>
+                            <th>Location</th>
+                            <th>Date</th>
+                            <th>New Cases</th>
+                            <th>New Deaths</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </table>
+                </div>
+
+                <!-- New Customers -->
+                <!-- <div class="recentCustomers">
+                    <div class="cardHeader">
+                        <h2> Recent Users</h2>
+                    </div>
+                    <table>
+                        <tr>
+                            <td width="60px"><div class="imgBx"><img src="/dist/img/Nahong.png"></div></td>
+                            <td><h4>Test<br><span>Philippines</span></h4></td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px"><div class="imgBx"><img src="/dist/img/Nahong3.png"></div></td>
+                            <td><h4>Test<br><span>Philippines</span></h4></td>
+                        </tr>
+
+                        <tr>
+                            <td width="60px"><div class="imgBx"><img src="/dist/img/Jasfer3.png"></div></td>
+                            <td><h4>Test<br><span>Philippines</span></h4></td>
+                        </tr>
+                    </table>
+                </div> -->
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        // menu toggle
+        let toggle = document.querySelector('.toggle');
+        let navigation = document.querySelector('.navigation');
+        let main = document.querySelector('.main');
+        
+        toggle.onclick = function(){
+            navigation.classList.toggle('active')
+            main.classList.toggle('active')
+        }
+
+        //add hovered class in selected list item
+        let list = document.querySelectorAll('.navigation li');
+        function activeLink(){
+            list.forEach((item) =>
+            item.classList.remove('hovered'));
+            this.classList.add('hovered');
+        }
+        list.forEach((item) =>
+        item.addEventListener('mouseover',activeLink));
+    </script>
+
+    <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+    import { getFirestore, collection, addDoc, connectFirestoreEmulator, query, getDocs, getDoc, updateDoc, setDoc, doc, onSnapshot, deleteDoc, orderBy  } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+    apiKey: "AIzaSyCzf803qRjCMmK9wGhzPs68WLUZKr-M42M",
+    authDomain: "casestudy-1c77a.firebaseapp.com",
+    projectId: "casestudy-1c77a",
+    storageBucket: "casestudy-1c77a.appspot.com",
+    messagingSenderId: "743404711750",
+    appId: "1:743404711750:web:fffdbd353973f645397f47",
+    measurementId: "G-YX6H49NVFB"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    console.log(app);
+
+    // Firestore
+    const db = getFirestore(app);
+
+    // Data Cards
+    firebase.initializeApp(firebaseConfig);
+    const db2 = firebase.firestore();
+
+    // Record Test
+    const collectionRef = collection(db, 'covid-test');
+    getDocs(collectionRef)
+    .then(snapshot => {
+        const test = snapshot.size;
+        const testE1 = document.getElementById('test');
+        testE1.innerText = `${test}`;
+    })
+    .catch(error => console.error(error));
+
+    // Get the Firebase Auth instance
+    const auth = getAuth(app);
+
+    // Get ID
+    const testDisplay = document.getElementById("covidTest");
+    const totaltestDisplay = document.getElementById("total");
+
+    // Total Covid Test of the Countries
+    db2.collection('covid-test').get().then((querySnapshot) => {
+        let totalTest = 0;
+
+        querySnapshot.forEach((doc) => {
+            const Covidtest = doc.data()['Covid-19 Test'];
+            if (Covidtest) {
+                totalTest += parseInt(Covidtest);
+            }
+        });
+        const total = totalTest;
+        console.log(`Total Covid Test: ${total}`);
+
+        totaltestDisplay.innerHTML = `${total} individual`;
+    }).catch((error) => {
+        console.log(`Error getting documents: ${error}`);
+    });
+    
+    // Average Test for Covid in the Country
+    db2.collection('covid-test').get().then((querySnapshot) => {
+        let numDocuments = 0;
+        let totalTest = 0;
+
+        querySnapshot.forEach((doc) => {
+            const Covidtest = doc.data()['Covid-19 Test'];
+            if(Covidtest) {
+                totalTest += parseInt(Covidtest);
+                numDocuments++;
+            }
+        });
+        const averageTest = (totalTest / numDocuments).toFixed(2);
+        console.log(`Average Test: ${averageTest}`);
+
+        // Set the innerHTML of the element to the calculated average
+        testDisplay.innerHTML = `${averageTest} individual`;
+    }).catch((error) => {
+        console.log(`Error getting documents: ${error}`);
+    });
+
+    // Add Data to DataTables
+
+    // Get the Data from FIRESTORE and add it to the DaTATABLE
+    db2.collection("covid-test")
+    .orderBy("DateTime", "desc")
+    .get()
+    .then((querySnapshot) => {
+        let counter = 1; 
+        const table = $('#myTable').DataTable();
+        table.clear();
+        querySnapshot.forEach((doc) => {
+            const data = doc.data();
+            table.row.add([
+                counter++,
+                data["ISO Code"],
+                data["Location"],
+                data["Date"],
+                data["New Cases"],
+                data["New Deaths"]
+            ]);
+        });
+        table.draw();
+    })
+    .catch((error) => {
+        console.log(`Error getting documents: ${error}`);
+    });
+
+    // Logout	  
+	document.getElementById("logout").addEventListener("click", function() {
+		signOut(auth).then(() => {
+		// Sign-out successful.
+		console.log('Sign-out successful.');
+		(Swal.fire({
+		icon: 'success',
+		title: 'Logged Out Successfully',
+		}));
+		setTimeout(function () {
+		window.location.href = "index.html"; 
+		}, 2000);
+		}).catch((error) => {
+		// Error Occured.
+		console.log('An error happened.');
+		(Swal.fire({
+		icon: 'error',
+		title: 'An Error Has Occured',
+		text: ''+error,
+		}));;
+		});
+	});
+    </script>
+    
+</body>
+</html>

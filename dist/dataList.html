@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Set</title>
+
+    <!-- Style Sheets -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/dashstyle.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+    <!-- Bundle.js Script -->
+    <script defer src="bundle.js"> </script>
+    
+    <!-- Bootstrap and Icons -->
+    <script src="https://kit.fontawesome.com/334c45a40c.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    
+    <!-- Firebase Data to DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+    
+    <!-- jQuery , DataTables , Bootstrap CSS , css3 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="css/custom.css">
+    
+    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--google material icon-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <div class = "main-container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="admin_dashboard.html">
+                        <span class="icon"><ion-icon name="flash-outline"></ion-icon></span>
+                        <span class="title">Covid 19 Test</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin_dashboard.html">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="analytics.html">
+                        <span class="icon"><ion-icon name="stats-chart-outline"></ion-icon></span>
+                        <span class="title">Visualization</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="dataList.html">
+                        <span class="icon"><ion-icon name="file-tray-full-outline"></ion-icon></ion-icon></span>
+                        <span class="title">Data Set</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" id="logout">
+                        <span class="icon" ><ion-icon name="log-out-outline"></ion-icon></span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- main -->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                
+                <!-- userImg -->
+                <div class="user">
+                    <img src="img/profile.png">
+                </div>
+            </div>
+
+            <div class="details">
+                <!-- Order details list -->
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2> Covid-19 Test Country Record</h2>
+                        <div class="row mb-3">
+                            <div class="col-auto">
+                              <button id="add-btn" type="button" class="btn btn-success add-btn" data-bs-toggle="modal"
+                                data-bs-target="#add-modal">
+                                <i class="fa-solid fa-square-plus"></i> Add Data
+                              </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table id="myTable" class="display">
+                        <thead>
+                          <tr>
+                            <th>ISO Code</th>
+                            <th>Location</th>
+                            <th>Date</th>
+                            <th>New Cases</th>
+                            <th>New Death</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                      </table>
+                    </table>
+                    
+                    <!-- Add Modal -->
+                    <div id="add-modal" class="modal" tabindex="-1">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title">Add Data</h5>
+                            <button type="button" id="close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            <div class="form-row">
+                                <form>
+                                <div class="form-group col-md-12">
+                                    <label for="LocationName" class="form-label" required>Location:</label>
+                                    <input type="text" class="form-control" id="LocationName" required style="width: 100%;">
+                                </div>
+                                <div class="form-group col-md-7">
+                                    <label for="DateTime" class="form-label">Date:</label>
+                                    <div class="input-group">
+                                    <input type="datetime-local" class="form-control" id="DateTime" required>
+                                    </div>
+                                    <label for="Cases" class="form-label" required>New Cases:</label>
+                                    <div class="input-group">
+                                    <input type="text" class="form-control" id="Cases" required>
+                                    </div>
+                                    <label for="Deaths" class="form-label" required>New Deaths:</label>
+                                    <div class="input-group">
+                                    <input type="number" class="form-control" id="Deaths" required>
+                                    <span class="input-group-text">ppl</span>
+                                    </div>
+                                    
+                                </div>
+                                <!--
+                                <div class="form-group col-md-10">
+                                    <label for="DateTime" class="form-label">Date and Time:</label>
+                                    <input type="datetime-local" class="form-control" id="DateTime" required>
+                                </div>
+                                -->
+                                </form>
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" id="add-button">Add</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- Edit Modal -->
+                    <div id="edit-modal" class="modal" tabindex="-1">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title">Edit Data</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                                id="edit-close"></button>
+                            </div>
+                            <div class="modal-body">
+                            <form>
+                                <div class="form-group col-md-7">
+                                <label for="LocationName" class="form-label" required>Location:</label>
+                                <input type="text" class="form-control" id="locationNameInput" required style="width: 100%;">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="Date" class="form-label" required>Date:</label>
+                                    <div class="input-group">
+                                    <input type="datetime-local" class="form-control" id="dateInput" required>
+                                    </div>
+
+                                    <label for="Cases" class="form-label" required>New Cases:</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="casesInput" required>
+                                    </div>
+
+                                    <label for="Deaths" class="form-label" required>New Deaths:</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="deathsInput" required>
+                                        <span class="input-group-text">ppl</span>
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="form-group col-md-6">
+                                <label for="DateTime" class="form-label">Edit Date and Time:</label>
+                                <input type="datetime-local" class="form-control" id="DateTimeInput">
+                                </div>
+                                <div class="form-group col-md-6">
+                                <label for="DateTime" class="form-label">Current Date and Time</label>
+                                <input type="text" class="form-control" id="DateTimeValue" readonly>
+                                </div>
+                                -->
+                            </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                id="edit-close-button">Close</button>
+                            <button type="button" class="btn btn-primary" id="update-button">Save</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        // menu toggle
+        let toggle = document.querySelector('.toggle');
+        let navigation = document.querySelector('.navigation');
+        let main = document.querySelector('.main');
+        
+        toggle.onclick = function(){
+            navigation.classList.toggle('active')
+            main.classList.toggle('active')
+        }
+
+        //add hovered class in selected list item
+        let list = document.querySelectorAll('.navigation li');
+        function activeLink(){
+            list.forEach((item) =>
+            item.classList.remove('hovered'));
+            this.classList.add('hovered');
+        }
+        list.forEach((item) =>
+        item.addEventListener('mouseover',activeLink));
+    </script>
+
+    <!-- firebase js -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+        import { getFirestore, collection, addDoc, connectFirestoreEmulator, query, getDocs, getDoc, updateDoc, setDoc, doc, onSnapshot, deleteDoc, orderBy  } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+        apiKey: "AIzaSyCzf803qRjCMmK9wGhzPs68WLUZKr-M42M",
+        authDomain: "casestudy-1c77a.firebaseapp.com",
+        projectId: "casestudy-1c77a",
+        storageBucket: "casestudy-1c77a.appspot.com",
+        messagingSenderId: "743404711750",
+        appId: "1:743404711750:web:fffdbd353973f645397f47",
+        measurementId: "G-YX6H49NVFB"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+        console.log(app);
+
+        // Firestore
+        const db = getFirestore(app);
+
+        // DataTables
+        firebase.initializeApp(firebaseConfig);
+        const db2 = firebase.firestore();
+
+        function updateSuccess() {
+        Swal.fire({
+            title: "Success",
+            text: "Record updated successfully",
+            icon: "success",
+        });
+        }
+
+        function updateError(errorMessage) {
+        Swal.fire({
+            title: "Error",
+            text: `There was an error updating the record: ${errorMessage}`,
+            icon: "error",
+        });
+        }
+
+        // Get the data from Firestore and add it to the DataTable
+        db2.collection("covid-test")
+        .orderBy("DateTime", "desc")
+        .onSnapshot(
+            (querySnapshot) => {
+                let counter = 1;
+                let updateTest = 0;
+                const table = $('#myTable').DataTable();
+                table.clear();
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const dateTime = data["Date"];
+                    const date = new Date(dateTime.toDate()).toLocaleDateString();
+                    //const time = new Date(dateTime.toDate()).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                    // Edit Button             
+                    const editButton = `<button type="button" class="btn btn-warning btn-sm edit" data-id="${doc.id}-edit" data-locationname="${data['Location Name']}" 
+                    data-date="${data['Date']}" data-cases="${data['New Cases']}" data-deaths="${data['New Deaths'].replace('ppl', '')}" data-datetime="${dateTime.toDate()}">Edit</button>`;
+                    // Delete Button
+                    const deleteButton = `<button type="button" class="btn btn-danger btn-sm delete" data-id="${doc.id}-delete"><ion-icon name="trash-outline"></ion-icon></button>`;
+                    
+                    // Add event listener for update button
+                    $(document).off('click', '#update-button').on('click', '#update-button', function () {
+                    const docId = $(this).data('id');
+                    const locationname = $('#locationNameInput').val();
+                    const date = $('#dateInput').val();
+                    const cases = $('#casesInput').val();
+                    const deaths = $('#deathInput').val();
+                    const newData = {
+                        'ISO Code': codeName,
+                        'Location': locationname,
+                        'Date': date,
+                        'New Cases': cases,
+                        'New Deaths': deaths,
+                    };
+                    console.log('Updating docId:', docId); // Check if Document ID matches with docID
+                    db2.collection("covid-test").doc(docId).update(newData) // update only the specific document
+                    .then(() => {
+                    console.log("update success");
+                    $('#edit-modal').modal('hide');
+                    updateSuccess();
+                    $(this).off('click'); // Remove event listener after update is completed
+                    })
+                    .catch((error) => {
+                    console.error("Error updating record: ", error);
+                    console.log("Error message: ", error.message);
+                    updateError(error.message);
+                    });
+                });
+
+                // Add event listener for edit button
+                $(document).on('click', '.edit', function () {
+                if ($(this).data('id') === `${doc.id}-edit`) {
+                    console.log(`Editing document with ID: ${doc.id}`); // add this line
+                    const docId = $(this).data('id').replace('-edit', '');
+                    const locationname = $(this).data('locationname');
+                    const date = $(this).data('dateInput');
+                    const cases = $(this).data('case');
+                    const deaths = $(this).data('deaths');
+
+                    // Pass data to edit form and display it
+                    $('#locationNameInput').val(locationName);
+                    $('#dateInput').val(date);
+                    $('#casesInput').val(casesName);
+                    $('#deathsInput').val(deaths);
+
+                    $('#edit-modal').modal('show');
+                    $('#update-button').data('id', docId);
+                }
+                }); 
+
+                // Add event listener for delete button
+                $(document).on('click', '.delete', function () {
+                if ($(this).data('id') === `${doc.id}-delete`) {
+                    Swal.fire({
+                    title: "Are you sure?",
+                    text: `Do you really want to delete the record for ${data["Location Name"]}?`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        db2.collection("covid-test").doc(doc.id).delete()
+                        .then(() => {
+                            console.log("Successful Delete")
+                            Swal.fire({
+                            title: "Deleted!",
+                            text: `The record for ${data["Location Name"]} has been deleted`,
+                            icon: "success",
+                            });
+                            table.row($(this).closest('tr')).remove().draw(); // remove row from DataTable
+                        })
+                        .catch((error) => {
+                            console.error("Error removing record: ", error);
+                            Swal.fire({
+                            title: "Error",
+                            text: "There was an error removing the record.",
+                            icon: "error",
+                            });
+                        });
+                    }
+                    });
+                }
+            });
+
+            // Displays the Data to the Tables
+            table.row.add([
+                counter++, // increment counter variable and include as first column
+                data["Location Name"],
+                data["Date"],
+                data["New Cases"],
+                data["New Deaths"],
+                `${editButton} ${deleteButton}`
+                ]);
+
+            });
+            table.draw(); // refresh the table with new data
+            },
+            (error) => {
+            console.log(`Error getting documents: ${error}`);
+            }
+        );
+
+        // <----- ADD MODAL -----> 
+
+        // Get the add modal element from the DOM
+        const addModal = document.getElementById("add-modal");
+
+        // Get the input fields and buttons from the add modal
+        const addLocationnameInput = addModal.querySelector("#LocationName");
+        const addDateInput = addModal.querySelector("#Date");
+        const addCasesInput = addModal.querySelector("#Cases");
+        const addDeathsInput = addModal.querySelector("#Deaths"); // <--- fixed typo
+        const addButton = addModal.querySelector("#add-button");
+        const cancelButton = addModal.querySelector("#cancel-button");
+
+        // Add event listener to the add button
+        addButton.addEventListener("click", () => {
+        const LocationName = addLocationnameInput.value.trim();
+        const Date = addDateInput.value.trim();
+        const Cases = addCasesInput.value.trim();
+        const Deaths = addDeathsInput.value.trim();
+
+        // Check if any of the input fields are blank
+        if (!LocationName || !Date || !Cases || !Deaths ) {
+            Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Please Fill Out All The Fields"
+            });
+            return;
+        }
+
+        // Add the data to Firestore
+        addDoc(collection(db, "covid-test"), {
+            "ISO Code": IsoCode,
+            "Location": LocationName,
+            "Date": Date,
+            "New Cases": Cases,
+            "New Deaths": Deaths
+        })
+            .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+            })
+            .catch((error) => {
+            console.error("Error adding document: ", error);
+            });
+
+        // Reset the input fields
+        addLocationnameInput.value = "";
+        addDateInput.value = "";
+        addCasesInput.value = "";
+        addDeathsInput.value = "";
+
+        function hideAddModal() {
+            const addModal = new bootstrap.Modal(document.querySelector("add-modal"));
+            const modalBackdrop = document.querySelector('.modal-backdrop');
+
+            // Hide the modal
+            addModal.hide();
+
+            // Remove the backdrop
+            modalBackdrop.parentNode.removeChild(modalBackdrop);
+        }
+
+        // Show a success message
+        Swal.fire({
+            icon: "success",
+            title: "Data Added Successfully",
+            text: "You can either close this modal or add more data"
+        });
+        });
+
+        // Add event listener to the add modal to reset the input fields
+        addModal.addEventListener("hidden.bs.modal", () => {
+        addlocationnameInput.value = "";
+        addDateInput.value = "";
+        addCasesInput.value = "";
+        addDeathsInput.value = "";
+        });
+
+        // Logout	  
+        document.getElementById("logout").addEventListener("click", function () {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            console.log('Sign-out successful.');
+            (Swal.fire({
+            icon: 'success',
+            title: 'Logged Out Successfully',
+            }));
+            setTimeout(function () {
+            window.location.href = "index.html";
+            }, 2000);
+        }).catch((error) => {
+            // Error Occured.
+            console.log('An error happened.');
+            (Swal.fire({
+            icon: 'error',
+            title: 'An Error Has Occured',
+            text: '' + error,
+            }));;
+        });
+        });
+
+        </script>
+
+        <!-- Data Table Show Entries -->
+        <script>
+            $('#myTable').dataTable({
+            "lengthMenu": [[5, 15, 30, -1], [5, 15, 30, "All"]]
+            });
+            </script>
+    </script>
+</body>
+</html>

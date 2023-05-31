@@ -20,23 +20,4 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-console.log(app);
-//connect to Firestore emulator
-const db = getFirestore(); 
-connectFirestoreEmulator(db, 'localhost', 8080);
-
-const saveBtn = document.querySelector(".save")
-saveBtn.addEventListener("click", async () => {
-  const collectionRef = collection(db, 'covidTests')
-  try {
-    const covidTestsRef = await addDoc(covidTestsCollectionRef, {
-      Country: countrybox.value,
-      Code: codebox.value,
-      Year: yearbox.value,
-      Total:totalbox.value
-    })
-    console.log(`data stored successfully: ${covidTestsRef.id}`)
-  } catch(error) {
-    console.log(error)
-  }
-})
+console.log(app)
