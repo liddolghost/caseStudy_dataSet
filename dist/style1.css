@@ -10,7 +10,7 @@
 
 body {
     overflow: hidden;
-    background-image: url('covid.png');
+    background-image: url('./assets/images/hero-bg.jpg');
             background-attachment: fixed;
             background-size: cover;
 }

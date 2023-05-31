@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Covid Evaluation</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="covidstyle.css">
     <script defer src="./bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
     <script src="https://kit.fontawesome.com/edf086d819.js" crossorigin="anonymous"></script>
@@ -14,8 +14,9 @@
 </head>
 <body>
     <!-- <section> -->
+    <div class="container">
         <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="col-md-6">
                 <center>
                     <form>
                         <h2>Add Data</h2>
@@ -33,7 +34,7 @@
                     </form>
                 </center>                
             </div>
-            <div class="col-xs-6 col-md-6">
+            <div class="col-md-6">
                 <div class="table-data">
                     <!-- //<div class="table-responsive" data-pattern="priority-columns"> -->
                         <table class="table table-dark">
@@ -54,11 +55,12 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-18 col-sm-12">                
+            <div class="col-md-12">                
               <center><p>Put your Data Visualization Catalogue HERE!!!</p> </center> 
             </div>
           </div>         
-          
+    </div>
+
     <!-- SCRIPTS -->
     <script src="./app.js" type="module"></script>
     <script type="module">
