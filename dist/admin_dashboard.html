@@ -1,246 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>༊*·˚Admin Dashboard</title>
-
-    <!-- Style Sheets -->
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/dashstyle.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
-
-    <!-- Bundle.js Script -->
     <script defer src="./bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
 
-    <!-- Bootstrap and Icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>  
-    <script src="https://kit.fontawesome.com/334c45a40c.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <!-- jQuery, Popper.js, Bootstrap JS -->
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-
-    <!-- Firebase Data to DataTables -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css" />
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
-
-    <!-- jQuery , DataTables , Bootstrap CSS , css3 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-    
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    
-    <link rel="stylesheet" href="/css/custom.css">
-    
-    <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+    
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
-    <div class="main-container">
-        <div class="navigation">
-            <ul>
-                <li>
-                    <a href="#">
-                        <span class="icon"><ion-icon name="flash-outline"></ion-icon></span>
-                        <span class="title">Wattsapp</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="admin_dashboard.html">
-                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="analytics.html">
-                        <span class="icon"><ion-icon name="stats-chart-outline"></ion-icon></span>
-                        <span class="title">Visualization</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="dataList.html">
-                        <span class="icon"><ion-icon name="file-tray-full-outline"></ion-icon></ion-icon></span>
-                        <span class="title">Data Set</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" id="logout">
-                        <span class="icon" ><ion-icon name="log-out-outline"></ion-icon></span>
-                        <span class="title">Sign Out</span>
-                    </a>
-                </li>
-            </ul>
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
         </div>
+        <!-- Spinner End -->
 
-        <!-- MAIN -->
 
-        <div class="main">
-            <div class="topbar">
-                <div class="toggle">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </div>
-                
-                <!-- userImg -->
-                <div class="user">
-                    <img src="img/profile.png">
-                </div>
-            </div>
-
-            <!-- cards -->
-            <div class="cardBox">
-                <div class="card">
-                    <div>
-                        <div class="numbers" id="count">Calculating</div>
-                        <div class="cardName">Appliances</div>
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-secondary navbar-dark">
+                <a href="admin_dashboard.html" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Tracker</h3>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="assets/cat.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
-                    <div class="iconBx">
-                        <ion-icon name="bulb-outline"></ion-icon>
+                    <div class="ms-3">
+                        <h6 class="mb-0">Meyawo</h6>
+                        <span>Admin</span>
                     </div>
                 </div>
-                <div class="card">
-                    <div>
-                        <div class="numbers" id="total">Calculating</div>
-                        <div class="cardName">Total Consumption</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="flash-outline"></ion-icon>
-                    </div>
+                <div class="navbar-nav w-100">
+                    <a href="admin_dashboard.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="dataSet.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Data Set</a>
+                    <a href="visual.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Visualization</a>
                 </div>
-                <div class="card">
-                    <div>
-                        <div class="numbers" id="consumption">Calculating</div>
-                        <div class="cardName">Average Consumption</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="flash-outline"></ion-icon>
-                    </div>
-                </div>
-                <!-- <div class="card">
-                    <div>
-                        <div class="numbers">Null</div>
-                        <div class="cardName">Null</div>
-                    </div>
-                    <div class="iconBx">
-                        <ion-icon name="flash-off-outline"></ion-icon>
-                    </div>
-                </div> -->
-                
-            </div>
-
-            <div class="details">
-                <!-- Order details list -->
-                <div class="recentRecords">
-                    <div class="cardHeader">
-                        <h2> Covid-19 Country Test Record</h2>
-                        <a href="dataList.html" class="view-btn">View All</a>
-                    </div>
-                    <table id="myTable" class="display">
-                        <thead>
-                          <tr>
-                            <th>ISO Code</th>
-                            <th>Location</th>
-                            <th>Date</th>
-                            <th>New Cases</th>
-                            <th>New Deaths</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                      </table>
-                    </table>
-                </div>
-
-                <!-- New Customers -->
-                <!-- <div class="recentCustomers">
-                    <div class="cardHeader">
-                        <h2> Recent Users</h2>
-                    </div>
-                    <table>
-                        <tr>
-                            <td width="60px"><div class="imgBx"><img src="/dist/img/Nahong.png"></div></td>
-                            <td><h4>Test<br><span>Philippines</span></h4></td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px"><div class="imgBx"><img src="/dist/img/Nahong3.png"></div></td>
-                            <td><h4>Test<br><span>Philippines</span></h4></td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px"><div class="imgBx"><img src="/dist/img/Jasfer3.png"></div></td>
-                            <td><h4>Test<br><span>Philippines</span></h4></td>
-                        </tr>
-                    </table>
-                </div> -->
-            </div>
-
+            </nav>
         </div>
+        <!-- Sidebar End -->
 
-    </div>
-    <script>
-        // menu toggle
-        let toggle = document.querySelector('.toggle');
-        let navigation = document.querySelector('.navigation');
-        let main = document.querySelector('.main');
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+                <a href="admin_dashboard.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+            
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="assets/cat.jpg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Admin</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">Admin Profile</a>
+                            <a href="#" id= "logout" class="dropdown-item">Sign Out</></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+
+            <!-- Card Started -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                             
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4" id="count">
+                            <i class="fa fa-chart-area fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Country</p>
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Cases</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Deaths</p>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="col-div-4">
+                        <div class="box-4">
+                          <div class="content-box">
+                            <p><strong>Total COVID-19 Death Cases</strong> <a href="visual.html"><span>View</span></a></p>
+                            <div class="circle-wrap">
+                              <div class="circle">
+                                <div class="mask full">
+                                  <div class="fill"></div>
+                                </div>
+                                <div class="mask half">
+                                  <div class="fill"></div>
+                                </div>
+                                <div class="inside-circle" id="total-population">Loading...</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    -->
+                  
+                    <div class="clearfix"></div>
         
-        toggle.onclick = function(){
-            navigation.classList.toggle('active')
-            main.classList.toggle('active')
-        }
+                </div>
+            </div>
 
-        //add hovered class in selected list item
-        let list = document.querySelectorAll('.navigation li');
-        function activeLink(){
-            list.forEach((item) =>
-            item.classList.remove('hovered'));
-            this.classList.add('hovered');
-        }
-        list.forEach((item) =>
-        item.addEventListener('mouseover',activeLink));
-    </script>
+            <!-- Data Table Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary text-center rounded p-4">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0">Covid-19 Country Test Record</h6>
+                        <a href="dataSet.html">Show All</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-white">
+                                    <th>ISO Code</th>
+                                    <th>Location</th>
+                                    <th>Date</th>
+                                    <th>New Cases</th>
+                                    <th>New Deaths</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody1"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+           
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Ustoqna bumitaw</a>, All Right Reserved. 
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                            <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
 
-    <script type="module">
-    // Import the functions you need from the SDKs you need
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <script type="module" src="js/add.js"></script>
+    <script type="module" src="js/get.js"></script>
+    <script type="module" src="js/signout.js"></script>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+<script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-analytics.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
-    import { getFirestore, collection, addDoc, connectFirestoreEmulator, query, getDocs, getDoc, updateDoc, setDoc, doc, onSnapshot, deleteDoc, orderBy  } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
+    import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+    import { connectFirestoreEmulator, orderBy, limit, getFirestore, setDoc, addDoc, doc, updateDoc,deleteDoc, getDoc, query, collection, where, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
+
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
-    
+
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
-    apiKey: "AIzaSyCzf803qRjCMmK9wGhzPs68WLUZKr-M42M",
-    authDomain: "casestudy-1c77a.firebaseapp.com",
-    projectId: "casestudy-1c77a",
-    storageBucket: "casestudy-1c77a.appspot.com",
-    messagingSenderId: "743404711750",
-    appId: "1:743404711750:web:fffdbd353973f645397f47",
-    measurementId: "G-YX6H49NVFB"
+        apiKey: "AIzaSyCzf803qRjCMmK9wGhzPs68WLUZKr-M42M",
+        authDomain: "casestudy-1c77a.firebaseapp.com",
+        projectId: "casestudy-1c77a",
+        storageBucket: "casestudy-1c77a.appspot.com",
+        messagingSenderId: "743404711750",
+        appId: "1:743404711750:web:fffdbd353973f645397f47",
+        measurementId: "G-YX6H49NVFB"
     };
 
     // Initialize Firebase
@@ -248,119 +245,201 @@
     const analytics = getAnalytics(app);
     console.log(app);
 
-    // Firestore
+    //Firestore
     const db = getFirestore(app);
 
-    // Data Cards
+    //Data Cards
     firebase.initializeApp(firebaseConfig);
     const db2 = firebase.firestore();
 
-    // Record Test
+      // Record Count
     const collectionRef = collection(db, 'covid-test');
     getDocs(collectionRef)
     .then(snapshot => {
-        const test = snapshot.size;
-        const testE1 = document.getElementById('test');
-        testE1.innerText = `${test}`;
+        const count = snapshot.size;
+        const countE1 = document.getElementById('count');
+        countE1.innerText = `${count}`;
     })
     .catch(error => console.error(error));
 
-    // Get the Firebase Auth instance
+    // GWT THE FIREBASE AUTH INSTANCE
     const auth = getAuth(app);
 
-    // Get ID
-    const testDisplay = document.getElementById("covidTest");
-    const totaltestDisplay = document.getElementById("total");
+    //GET ID
+    const locationDisplay = document.getElementById("location");
+    const totallocationDisplay = document.getElementById("total");
 
-    // Total Covid Test of the Countries
-    db2.collection('covid-test').get().then((querySnapshot) => {
-        let totalTest = 0;
+    // Total number of Countries
+    document.addEventListener("DOMContentLoaded", async function() {
+        const q = query(collection(db, "covid-test"));
+        const querySnapshot = await getDocs(q).then((snapshot) => {
+            if (!snapshot.empty) {
+                const totalCountries = snapshot.docs.length;
+                console.log('count: ', totalCountries);
+                document.getElementById("total-countries").innerHTML = `${totalCountries}<br><span>Total Country</span>`;
+                } else {
+                    console.log('No documents found');
+                }
+            });
+        });
 
-        querySnapshot.forEach((doc) => {
-            const Covidtest = doc.data()['Covid-19 Test'];
-            if (Covidtest) {
-                totalTest += parseInt(Covidtest);
+        const collectionRef1 = collection(db, 'covid-test');
+        const queryRef = query(collectionRef);
+        let totalCases = 0;
+        let totalDeaths = 0;
+
+        getDocs(queryRef)
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const cases = parseInt(data.cases);
+                totalCases += cases;
+            });
+            console.log('Total Cases:', totalCases);
+
+            const formattedTotalCases = formatNumber(totalCases);
+            document.getElementById("total-cases").innerHTML = `${formattedTotalCases}<br><span>Total Cases</span>`;
+        })
+        .catch((error) => {
+            console.log('Error getting documents:', error);
+        });
+
+        function formatNumber(num) {
+            const million = 1000000;
+            const thousand = 1000;
+            const hundred = 100;
+
+            if (num >= million) {
+                return (num / million).toFixed(1) + 'M';
+            } else if (num >= thousand) {
+                return (num / thousand).toFixed(0) + 'K';
+            } else if (num >= hundred) {
+                return (num / hundred).toFixed(0) + '';
+            } else {
+                return num.toString();
             }
+        }
+
+        getDocs(queryRef)
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const deaths = parseInt(data.death);
+                totalDeaths += deaths;
+            });
+            console.log('Total Deaths:', totalDeaths);
+
+            const formattedTotalDeaths = formatNumber(totalDeaths);
+            document.getElementById("total-deaths").innerHTML = `${formattedTotalDeaths}<br><span>Total Deaths</span>`;
+        })
+        .catch((error) => {
+            console.log('Error getting documents:', error);
         });
-        const total = totalTest;
-        console.log(`Total Covid Test: ${total}`);
 
-        totaltestDisplay.innerHTML = `${total} individual`;
-    }).catch((error) => {
-        console.log(`Error getting documents: ${error}`);
-    });
+        //---------------------------------Total case of the world population
+        getDocs(queryRef)
+        .then((querySnapshot) => {
+            let totalCases = 0;
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const cases = parseInt(data.cases);
+                totalCases += cases;
+            });
+
+            let worldPopulation = 8400000000;
+            const percentage = (totalCases / worldPopulation) * 1000;
+            const covidPercentageDisplay = percentage.toFixed(2) + '%';
     
-    // Average Test for Covid in the Country
-    db2.collection('covid-test').get().then((querySnapshot) => {
-        let numDocuments = 0;
-        let totalTest = 0;
-
-        querySnapshot.forEach((doc) => {
-            const Covidtest = doc.data()['Covid-19 Test'];
-            if(Covidtest) {
-                totalTest += parseInt(Covidtest);
-                numDocuments++;
+            const covidPercentageElement = document.getElementById("total-population");
+            if (covidPercentageElement) {
+                covidPercentageElement.innerHTML = covidPercentageDisplay;
+            } else {
+                console.error();
             }
+        })
+        .catch((error) => {
+            console.log(error);
         });
-        const averageTest = (totalTest / numDocuments).toFixed(2);
-        console.log(`Average Test: ${averageTest}`);
 
-        // Set the innerHTML of the element to the calculated average
-        testDisplay.innerHTML = `${averageTest} individual`;
-    }).catch((error) => {
-        console.log(`Error getting documents: ${error}`);
-    });
+        // ----------------------------- LOGOUT CODE START
+        document.getElementById("logout").addEventListener("click", function () {
+            signOut(auth).then(() => {
+                // Sign-out successful.
+                console.log('Sign-out successful.');
+                (Swal.fire({
+                    icon: 'success',
+                    title: 'Logged Out Successfully',
+                }));
+                setTimeout(function () {
+                    window.location.href = "index.html";
+                }, 2000);
 
-    // Add Data to DataTables
-
-    // Get the Data from FIRESTORE and add it to the DaTATABLE
-    db2.collection("covid-test")
-    .orderBy("DateTime", "desc")
-    .get()
-    .then((querySnapshot) => {
-        let counter = 1; 
-        const table = $('#myTable').DataTable();
-        table.clear();
-        querySnapshot.forEach((doc) => {
-            const data = doc.data();
-            table.row.add([
-                counter++,
-                data["ISO Code"],
-                data["Location"],
-                data["Date"],
-                data["New Cases"],
-                data["New Deaths"]
-            ]);
+            }).catch((error) => {
+                // Error Occured.
+                console.log('An error happened.');
+                (Swal.fire({
+                    icon: 'error',
+                    title: 'An Error Has Occured',
+                    text: '' + error,
+                }));;
+            });
         });
-        table.draw();
-    })
-    .catch((error) => {
-        console.log(`Error getting documents: ${error}`);
-    });
+        //----- End
 
-    // Logout	  
-	document.getElementById("logout").addEventListener("click", function() {
-		signOut(auth).then(() => {
-		// Sign-out successful.
-		console.log('Sign-out successful.');
-		(Swal.fire({
-		icon: 'success',
-		title: 'Logged Out Successfully',
-		}));
-		setTimeout(function () {
-		window.location.href = "index.html"; 
-		}, 2000);
-		}).catch((error) => {
-		// Error Occured.
-		console.log('An error happened.');
-		(Swal.fire({
-		icon: 'error',
-		title: 'An Error Has Occured',
-		text: ''+error,
-		}));;
-		});
-	});
-    </script>
-    
+        //------------------------------------Get Data------------------------------------------//
+        var dataNo =0;
+        var datasets = [];
+        var tbody = document.getElementById('tbody1');
+
+
+        function AddItemToTable(code, location, date, cases, deaths){
+        var trow = document.createElement('tr');
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        var td3 = document.createElement('td');
+        var td4 = document.createElement('td');
+        var td5 = document.createElement('td');
+
+        td1.innerHTML = code;
+        td2.innerHTML = location;
+        td3.innerHTML = date;
+        td4.innerHTML = cases;
+        td5.innerHTML = deaths;
+        datasets.push([code, location, date, cases, deaths]);
+
+        trow.appendChild(td1);
+        trow.appendChild(td2);
+        trow.appendChild(td3);
+        trow.appendChild(td4);
+        trow.appendChild(td5);
+
+        tbody.appendChild(trow);
+        }
+
+        function populateTableList(UserDocList){
+            dataNo=0;
+            tbody.innerHTML="";
+            UserDocList.forEach(element => {
+                AddItemToTable(element.code, element.location, element.date, element.cases, element.deaths);
+            })
+        }
+
+        function GetAllDataRealtime() {
+            const q = query(collection(db, "covid-test"), orderBy("code", "desc")); //limit(4)
+            const list = onSnapshot(q, (querySnapshot) => {
+                var datasetss = [];
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    datasetss.push({ ...data, id: doc.id });
+                    console.log(doc.id);
+                });
+                populateTableList(datasetss);
+            });
+        }
+
+        window.onload = GetAllDataRealtime;
+        
+</script>
+
 </body>
 </html>

@@ -1,64 +1,26 @@
-'use strict';
+/*!
+    * Start Bootstrap - SB Admin v7.0.5 (https://startbootstrap.com/template/sb-admin)
+    * Copyright 2013-2022 Start Bootstrap
+    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
+    */
+    // 
+// Scripts
+// 
 
+window.addEventListener('DOMContentLoaded', event => {
 
-
-/**
- * add event on element
- */
-
-const addEventOnElem = function (elem, type, callback) {
-  if (elem.length > 1) {
-    for (let i = 0; i < elem.length; i++) {
-      elem[i].addEventListener(type, callback);
+    // Toggle the side navigation
+    const sidebarToggle = document.body.querySelector('#sidebarToggle');
+    if (sidebarToggle) {
+        // Uncomment Below to persist sidebar toggle between refreshes
+        // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+        //     document.body.classList.toggle('sb-sidenav-toggled');
+        // }
+        sidebarToggle.addEventListener('click', event => {
+            event.preventDefault();
+            document.body.classList.toggle('sb-sidenav-toggled');
+            localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+        });
     }
-  } else {
-    elem.addEventListener(type, callback);
-  }
-}
 
-
-
-/**
- * navbar toggle
- */
-
-const navbar = document.querySelector("[data-navbar");
-const navToggler = document.querySelector("[data-nav-toggler]");
-const navbarLinks = document.querySelectorAll("[data-nav-link]");
-
-const toggleNavbar = function () {
-  navbar.classList.toggle("active");
-  navToggler.classList.toggle("active");
-  document.body.classList.toggle("active");
-}
-
-addEventOnElem(navToggler, "click", toggleNavbar);
-
-const closeNavbar = function () {
-  navbar.classList.remove("active");
-  navToggler.classList.remove("active");
-  document.body.classList.remove("active");
-}
-
-addEventOnElem(navbarLinks, "click", closeNavbar);
-
-
-
-/**
- * active header & back top btn when window scroll down to 100px
- */
-
-const header = document.querySelector("[data-header]");
-const backTopBtn = document.querySelector("[data-back-top-btn]");
-
-const activeElemOnScroll = function () {
-  if (window.scrollY > 100) {
-    header.classList.add("active");
-    backTopBtn.classList.add("active");
-  } else {
-    header.classList.remove("active");
-    backTopBtn.classList.remove("active");
-  }
-}
-
-addEventOnElem(window, "scroll", activeElemOnScroll);
+});
