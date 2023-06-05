@@ -8,7 +8,9 @@
     <title>༊*·˚Visualization</title>
     <script defer src="./bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/visualization.css">
+    
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -100,49 +102,46 @@
             </nav>
             <!-- Navbar End -->
 
-
-            <!-- Chart Start 
-            <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Single Line Chart</h6>
-                            <canvas id="line-chart"></canvas>
-                        </div>
+            <div id="main">
+                <div class="head">
+            
+                  <div class="col-div-6">
+                    <span  id="overview" style="font-size: 35px; cursor: pointer; font-weight: bold;" > Data Visualization </span>
+                  </div>
+            
+                  <div class="col-div-6">
+                    <div class="profile">
+                      <img src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/48/1A1A1A/external-user-user-tanah-basah-glyph-tanah-basah-4.png" class="pro-img"/>
+            
+                      <p class="name" id="displayName"></p>
+            
                     </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Multiple Line Chart</h6>
-                            <canvas id="salse-revenue"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Single Bar Chart</h6>
-                            <canvas id="bar-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Multiple Bar Chart</h6>
-                            <canvas id="worldwide-sales"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Pie Chart</h6>
-                            <canvas id="pie-chart"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class="bg-secondary rounded h-100 p-4">
-                            <h6 class="mb-4">Doughnut Chart</h6>
-                            <canvas id="doughnut-chart"></canvas>
-                        </div>
-                    </div>
+                  </div>
+            
+                  <div class="clearfix"></div>
                 </div>
-            </div>
-            Chart End -->
+            
+                <div class="clearfix"></div>
+                  <br>
+            
+                    
+                      <div class="cumulative container graph-container"> 
+                        <canvas id="age-chart"></canvas> 
+                      </div>
+            
+                    <br><br>
+                    
+                      <div class="death container graph-container"> 
+                        <canvas id="death-chart"></canvas> 
+                      </div>
+                
+             
+                <div class="clearfix"></div>
+            
+              </div>
+
+
+            
 
 
             <!-- Footer Start -->
@@ -182,6 +181,119 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
+    <script type="module" src="./js/signout.js"></script>
 
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+        import { getAuth, signOut, onAuthStateChanged, } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
+        import { getFirestore, setDoc, addDoc, doc, updateDoc,deleteDoc, getDoc, query, collection, where, getDocs, onSnapshot  } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+        apiKey: "AIzaSyCzf803qRjCMmK9wGhzPs68WLUZKr-M42M",
+        authDomain: "casestudy-1c77a.firebaseapp.com",
+        projectId: "casestudy-1c77a",
+        storageBucket: "casestudy-1c77a.appspot.com",
+        messagingSenderId: "743404711750",
+        appId: "1:743404711750:web:fffdbd353973f645397f47",
+        measurementId: "G-YX6H49NVFB"
+      };
+
+      // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth();
+        console.log(app);
+
+
+
+
+        function GetAllDataRealtime(){
+            const q = query(collection(db, "covid-test"))
+            const list = onSnapshot(q, (querySnapshot) => {
+                var datasetss = [];
+                let isocode =[];
+                let location =[];
+                let newcases=[];
+                let newdeaths=[];
+
+                querySnapshot.forEach(doc => {
+                const data = doc.data();
+                datasetss.push({...data, id: doc.id}); 
+                
+                isocode.push(data.isocode);
+                location.push(data.location);
+                newcases.push(data.newcases);
+                newdeaths.push(data.newdeaths);
+                console.log(doc.id)
+                })
+                
+                // for visualization
+                let deathChart = Chart.getChart('death-chart');
+                if (deathChart) {
+                deathChart.destroy();
+                }
+
+
+                let ageChart = Chart.getChart('age-chart');
+                if (ageChart) {
+                ageChart.destroy();
+                }
+
+                let chartData = {
+                labels: countries,
+                datasets: [{
+                    label: 'Total of New Cases',
+                    data: cases,
+                    backgroundColor: 'rgba(0, 94, 209, 0.2)',
+                    borderColor: 'rgb(1, 33, 105)',
+                    borderWidth: 1
+                }]
+                };
+
+
+
+                let chartData1 = {
+                labels: countries,
+                datasets: [{
+                    label: 'Total of Death Cases',
+                    data: death,
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                    borderColor: 'rgb(0, 0, 0)',
+                    borderWidth: 1
+                }]
+                };
+
+                let chartOptions = {
+                scales: {
+                    y: {
+                    beginAtZero: true,
+                    type: 'logarithmic',
+                    }
+                }
+                };
+
+
+
+                ageChart = new Chart(document.getElementById('age-chart'), {
+                type: 'bar',
+                data: chartData,
+                options: chartOptions
+                });
+
+                deathChart = new Chart(document.getElementById('death-chart'), {
+                type: 'bar',
+                data: chartData1,
+                options: chartOptions
+                });
+            })
+        }
+
+        window.onload = GetAllDataRealtime;
+
+
+
+  
+    </script>
+</body>
 </html>

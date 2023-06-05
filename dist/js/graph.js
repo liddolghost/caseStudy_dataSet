@@ -114,7 +114,7 @@ db2.collection("covid-test")
 
   },
     series: [{
-      points: Poverty2012Data
+      points: CovidTestDeathsData
     }
   ],
   toolbar_items: {
@@ -125,20 +125,20 @@ db2.collection("covid-test")
       width:"110px",
       margin_top:"10px",
       items: {
-        "Year 2012": {
+        "Deaths": {
           events_click: function () {
             // Code to update chart with new data
             chart.series([{
-              points: Poverty2012Data
+              points: CovidTestDeathsData
             }])
   
           }
         },
-        "Year 2015": {
+        "Cases": {
           events_click: function () {
             // Code to revert chart to original data
             chart.series([{
-              points: Poverty2015Data
+              points: CovidTestCasesData
             }])
   
           }
@@ -161,7 +161,7 @@ db2.collection("covid-test")
 
 //Pie donut data visualization of region statistic
 
-db2.collection("2012region")
+db2.collection("covid-test")
 .orderBy("PovertyIncidence", "desc")
     .limit(20)
 .onSnapshot(

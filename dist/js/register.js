@@ -1,4 +1,4 @@
-import { register } from "./app.js";
+import { register } from "../app.js";
 
 
 //----- New Registration code start	  

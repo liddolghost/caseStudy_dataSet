@@ -173,6 +173,7 @@ onSnapshot(collection(db, "covidtest-activitylog"), (querySnapshot) => {
 });
 
 
+
        // Displays the Data to the Tables
      // table.row.add([
       //  counter++,
