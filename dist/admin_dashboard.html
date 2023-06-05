@@ -14,16 +14,16 @@
 
     <!-- Jquery -->
     <!-- I used a different source for datatables. -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+ <!--   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-
+ -->
 
     <!-- js charting script -->
-    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+ <!--   <script src="https://code.jscharting.com/latest/jscharting.js"></script>
     <script type="text/javascript" src="https://code.jscharting.com/latest/modules/toolbar.js"></script>
     <script type="text/javascript" src="https://code.jscharting.com/latest/modules/types.js"></script>
-
+ -->
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +41,8 @@
     <link href="css/style.css" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-6E7GQmD5Tt+7aVJQI6b1kXxhLrFzYB0mPvq2fJtRZ1GKsKzU3e3y9czW2r4g0jvF9PZcWopNkLl+wxRw/LnIvg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -120,7 +122,7 @@
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-area fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2" id="total-countries">Total Country</p>
+                                <p class="mb-2" id="total-location">0<br><span>Loading Locations...</span></p>
                             </div>
                         </div>
                     </div>
@@ -128,7 +130,7 @@
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-line fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2" id="total-cases">Total Cases</p>
+                                <p class="mb-2" id="total-cases">0<br><span>Calculating Cases...</span></p>
                                 
                             </div>
                         </div>
@@ -137,35 +139,14 @@
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-pie fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2" id="total-deaths">Total Deaths</p>
+                                <p class="mb-2" id="total-deaths">0<br><span>Calculating Deaths...</span></p>
                             
                             </div>
                         </div>
                     </div>
-                    <!--
-                    <div class="col-div-4">
-                        <div class="box-4">
-                          <div class="content-box">
-                            <p><strong>Total COVID-19 Death Cases</strong> <a href="visual.html"><span>View</span></a></p>
-                            <div class="circle-wrap">
-                              <div class="circle">
-                                <div class="mask full">
-                                  <div class="fill"></div>
-                                </div>
-                                <div class="mask half">
-                                  <div class="fill"></div>
-                                </div>
-                                <div class="inside-circle" id="total-population">Loading...</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                   -->
-                  
+                    
                     <div class="clearfix"></div>
-        
-            </div>
+                </div>
             </div>
         
 
@@ -187,14 +168,12 @@
                                     <th>New Deaths</th>
                                 </tr>
                             </thead>
-                            <tbody id="tbody"></tbody>
+                          <tbody id="tbody"></tbody>
                         </table>
                     </div>  
                 </div>
             </div>
             
-
-
             
            
             <!-- Footer Start -->
@@ -220,9 +199,6 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
 
     <!-- <script type="module" src="js/graph.js"></script> -->
 
@@ -253,7 +229,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
         import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-auth.js";
-        import { connectFirestoreEmulator, orderBy, limit, getFirestore, setDoc, addDoc, doc, updateDoc,deleteDoc, getDoc, query, collection, where, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
+        import { connectFirestoreEmulator, orderBy, limit, getFirestore, setDoc, addDoc, doc, updateDoc, deleteDoc, getDoc, query, collection, where, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyCzf803qRjCMmK9wGhzPs68WLUZKr-M42M",
@@ -272,78 +248,80 @@
         console.log(app);
 
 
-        //Total number of Countries
-        document.addEventListener("DOMContentLoaded", async function () {
-  const q = query(collection(db, "covid-test"));
-  const querySnapshot = await getDocs(q).then((snapshot) => {
-    if (!snapshot.empty) {
-      const countries = {}; // Empty object to store unique countries
-      snapshot.forEach((doc) => {
-        const data = doc.data();
-        const country = data.location;
-        countries[country] = true; // Store country in the object
-      });
-      const totalCountries = Object.keys(countries).length; // Count the number of unique countries
-      console.log("count: ", totalCountries);
-      document.getElementById(
-        "total-countries"
-      ).innerHTML = `${totalCountries}<br><span>Total Country</span>`;
-    } else {
-      console.log("No documents found");
-    }
-  });
-});
 
+  //Total number of Countries
+    //Total number of Countries
+    document.addEventListener("DOMContentLoaded", async function() {
+    const q = query(collection(db, "covid-test"));
+    const querySnapshot = await getDocs(q).then((snapshot) => {
+      if (!snapshot.empty) {
+        const totalLocations = snapshot.docs.length;
+        console.log('count: ', totalLocations);
+        document.getElementById("total-location").innerHTML = `${totalLocations}<br><span>All Records</span>`;
+      } else {
+        console.log('No documents found');
+      }
+    });
 
-        const collectionRef = collection(db, 'covid-test');
-        const queryRef = query(collectionRef);
-        let totalCases = 0;
-        let totalDeaths = 0;
+    const collectionRef = collection(db, 'covid-test');
+    const queryRef = query(collectionRef);
+    let totalCases = 0;
+    let totalDeaths = 0;
 
-        getDocs(queryRef)
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                const data = doc.data();
-                const cases = parseInt(data.newcases) || 0; // Update the field name here
-                const deaths = parseInt(data.newdeaths)|| 0; // Update the field name here
-                totalCases += cases;
-                totalDeaths += deaths;
-            });
-
-            console.log('Total Cases:', totalCases);
-            console.log('Total Deaths:', totalDeaths);
-
-            const formattedTotalCases = formatNumber(totalCases);
-            const formattedTotalDeaths = formatNumber(totalDeaths);
-
-            document.getElementById("total-cases").innerHTML = `${formattedTotalCases}<br><span>Total Cases</span>`;
-            document.getElementById("total-deaths").innerHTML = `${formattedTotalDeaths}<br><span>Total Deaths</span>`;
-        })
-        .catch((error) => {
-            console.log('Error getting documents:', error);
+    getDocs(queryRef)
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const cases = parseInt(data.NewCases); // Replace 'newCases' with the actual field name for cases in your document data
+          totalCases += cases;
         });
+        console.log('Total Cases:', totalCases);
 
+        const formattedTotalCases = formatNumber(totalCases);
+        document.getElementById("total-cases").innerHTML = `${formattedTotalCases}<br><span>Total Cases</span>`;
+      })
+      .catch((error) => {
+        console.log('Error getting documents:', error);
+      });
 
-        function formatNumber(num) {
-            const billion = 1000000000;
-            const million = 1000000;
-            const thousand = 1000;
+    getDocs(queryRef)
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          const deaths = parseInt(data.NewDeaths); // Update with the correct field name for deaths
+          totalDeaths += deaths;
+        });
+        console.log('Total Deaths:', totalDeaths);
 
-            if (num >= billion) {
-                return (num / billion).toFixed(1) + 'B';
-            } else if (num >= million) {
-                return (num / million).toFixed(0) + 'M';
-            } else if (num >= thousand) {
-                return (num / thousand).toFixed(0) + 'K';
-            } else {
-                return num.toString();
-            }
-        }
+        const formattedTotalDeaths = formatNumber(totalDeaths);
+        document.getElementById("total-deaths").innerHTML = `${formattedTotalDeaths}<br><span>Total Deaths</span>`;
+      })
+      .catch((error) => {
+        console.log('Error getting documents:', error);
+      });
+  });
+
+  function formatNumber(num) {
+    const billion = 1000000000;
+    const million = 1000000;
+    const thousand = 1000;
+
+    if (num >= billion) {
+      return (num / billion).toFixed(1) + 'B';
+    } else if (num >= million) {
+      return (num / million).toFixed(0) + 'M';
+    } else if (num >= thousand) {
+      return (num / thousand).toFixed(0) + 'K';
+    } else {
+      return num.toString();
+    }
+  }
 
         //------------------------------------Get Data------------------------------------------//
         function populateTableList(UserDocList) {
-  dataNo = 0;
+  var tbody = document.getElementById("CovidDataTables").getElementsByTagName("tbody")[0];
   tbody.innerHTML = "";
+
   UserDocList.forEach((element) => {
     AddItemToTable(
       element.isocode,
@@ -354,6 +332,7 @@
     );
   });
 }
+
 
 function GetAllDataRealtime() {
   const q = query(collection(db, "covid-test"), orderBy("isocode", "desc"), limit(4));
@@ -370,7 +349,7 @@ function GetAllDataRealtime() {
 window.onload = GetAllDataRealtime;
 
 function AddItemToTable(isocode, location, date, newcases, newdeaths) {
-  var tbody = document.getElementById("tbody1");
+  var tbody = document.getElementById("CovidDataTables").getElementsByTagName("tbody")[0];
 
   var trow = document.createElement("tr");
   var td1 = document.createElement("td");
@@ -379,13 +358,11 @@ function AddItemToTable(isocode, location, date, newcases, newdeaths) {
   var td4 = document.createElement("td");
   var td5 = document.createElement("td");
 
-
   td1.innerHTML = isocode;
   td2.innerHTML = location;
   td3.innerHTML = date;
   td4.innerHTML = newcases;
   td5.innerHTML = newdeaths;
-
 
   trow.appendChild(td1);
   trow.appendChild(td2);
@@ -393,19 +370,8 @@ function AddItemToTable(isocode, location, date, newcases, newdeaths) {
   trow.appendChild(td4);
   trow.appendChild(td5);
 
-
   tbody.appendChild(trow);
 }
-
-
-// Initialize the DataTable
-$(document).ready(function () {
-  $('#CovidDataTables').DataTable();
-});
-
-
-
-
     </script>
 
 
