@@ -22,7 +22,6 @@ const firebaseConfig = {
  //const db2 = firebase.firestore();  // Function for Database Firestore 
  const table = $('#CovidDataTables').DataTable();
 
-//  const querySnapshot = await getDocs(collection(db, "NewTeams"));
 
 //db2.collection("covid-test")
 // .onSnapshot(
@@ -91,8 +90,16 @@ $(document).on('click', '#update-button', function () {
     'NewDeaths': NewDeaths
   };
 
+   // show success message before updating the data
+   alert('Update Success bhie');
+   //$('#edit-modal').modal('hide'); // Hide the modal after updating
+  location.reload();
+   // basta kaning tulo ang ning work for me UwU
+
+     // Update the data in Firestore
   updateDoc(doc(db, 'covid-test', docId), newData)
     .then(() => {
+            // Add activity log document
       const activityLogCollection = collection(db, "covidtest-activitylog");
       const Datecreated = new Date().toISOString();
 
@@ -102,22 +109,22 @@ $(document).on('click', '#update-button', function () {
         details: `${Location} data Updated.`
       })
         .then(() => {
-          console.log("Update success");
+          console.log("Activity Log Added");
           alert('Update success');
-          $('#edit-modal').modal('hide');
-          location.reload();
+          $('#edit-modal').modal('hide'); // Hide the modal after updating
+          location.reload();  // Reload the page to reflect the updated data
         })
         .catch((error) => {
           console.error("Error adding activity log: ", error);
           updateError(error.message);
-          $('#edit-modal').modal('hide'); // Hide the modal on error
+         // $('#edit-modal').modal('hide'); // Hide the modal on error
         });
     })
     .catch((error) => {
       console.error("Error updating record: ", error);
       console.log("Error message: ", error.message);
       updateError(error.message);
-      $('#edit-modal').modal('hide'); // Hide the modal on error
+      //$('#edit-modal').modal('hide'); // Hide the modal on error
     });
 });
 
