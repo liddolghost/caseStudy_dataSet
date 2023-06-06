@@ -93,7 +93,6 @@ $(document).on('click', '#update-button', function () {
 
   updateDoc(doc(db, 'covid-test', docId), newData)
     .then(() => {
-      // Add a new activity log document
       const activityLogCollection = collection(db, "covidtest-activitylog");
       const Datecreated = new Date().toISOString();
 
@@ -106,19 +105,23 @@ $(document).on('click', '#update-button', function () {
           console.log("Update success");
           alert('Update success');
           $('#edit-modal').modal('hide');
-          location.reload(); //reload the page
+          location.reload();
         })
         .catch((error) => {
           console.error("Error adding activity log: ", error);
           updateError(error.message);
+          $('#edit-modal').modal('hide'); // Hide the modal on error
         });
     })
     .catch((error) => {
       console.error("Error updating record: ", error);
       console.log("Error message: ", error.message);
       updateError(error.message);
+      $('#edit-modal').modal('hide'); // Hide the modal on error
     });
 });
+
+
 
 // Add event listener for delete button
 $(document).on('click', '.delete', function () {

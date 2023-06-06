@@ -140,7 +140,7 @@
 
 
     // Single Bar Chart
-    var ctx4 = $("#bar-chart").get(0).getContext("2d");
+    var ctx4 = $("#bar-chart-cases").get(0).getContext("2d");
     var myChart4 = new Chart(ctx4, {
         type: "bar",
         data: {
