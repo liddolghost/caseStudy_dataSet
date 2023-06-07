@@ -450,107 +450,114 @@
 
 
 
-        // Fetch the data from Firebase and update the bar chart for total new cases
-        async function updateBarChartCases() {
-        const querySnapshot = await getDocs(collection(db, "covid-test"));
-        const locationData = {};
-  
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          const location = data.Location;
-          const newCases = parseInt(data.NewCases);
-  
-          if (locationData[location]) {
-            locationData[location] += newCases;
-          } else {
-            locationData[location] = newCases;
-          }
-        });
-  
-        const locations = Object.keys(locationData).sort(); // Sort locations alphabetically
-        const totalCases = Object.values(locationData);
-  
-        // Create the bar chart for total new cases
-        new Chart(document.getElementById('bar-chart-cases'), {
-          type: 'bar',
-          data: {
-            labels: locations,
-            datasets: [{
-              label: 'Total New Cases',
-              data: totalCases,
-              backgroundColor: 'rgba(54, 162, 235, 0.6)',
-              borderColor: 'rgba(54, 162, 235, 1)',
-              borderWidth: 1,
-            }],
+ // Fetch the data from Firebase and update the bar chart for total new cases
+async function updateBarChartCases() {
+  const querySnapshot = await getDocs(collection(db, "covid-test"));
+  const locationData = {};
+
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    const location = data.Location;
+    const newCases = parseInt(data.NewCases);
+
+    if (locationData[location]) {
+      locationData[location] += newCases;
+    } else {
+      locationData[location] = newCases;
+    }
+  });
+
+  const locations = Object.keys(locationData).sort(); // Sort locations alphabetically
+  const totalCases = locations.map((location) => locationData[location]);
+
+  console.log("Locations (Cases):", locations);
+  console.log("Total New Cases:", totalCases);
+
+  // Create the bar chart for total new cases
+  new Chart(document.getElementById('bar-chart-cases'), {
+    type: 'bar',
+    data: {
+      labels: locations,
+      datasets: [{
+        label: 'Total New Cases',
+        data: totalCases,
+        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+      }],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Total New Cases',
           },
-          options: {
-            responsive: true,
-            scales: {
-              y: {
-                beginAtZero: true,
-                title: {
-                  display: true,
-                  text: 'Total New Cases',
-                },
-              },
-            },
+        },
+      },
+    },
+  });
+}
+
+// Call the updateBarChartCases function to initialize the bar chart for total new cases
+updateBarChartCases();
+
+// Fetch the data from Firebase and update the bar chart for total new deaths
+async function updateBarChartDeaths() {
+  const querySnapshot = await getDocs(collection(db, "covid-test"));
+  const locationData = {};
+
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    const location = data.Location;
+    const newDeaths = parseInt(data.NewDeaths);
+
+    if (locationData[location]) {
+      locationData[location] += newDeaths;
+    } else {
+      locationData[location] = newDeaths;
+    }
+  });
+
+  const locations = Object.keys(locationData).sort(); // Sort locations alphabetically
+  const totalDeaths = locations.map((location) => locationData[location]);
+
+  console.log("Locations (Deaths):", locations);
+  console.log("Total New Deaths:", totalDeaths);
+
+  // Create the bar chart for total new deaths
+  new Chart(document.getElementById('bar-chart-deaths'), {
+    type: 'bar',
+    data: {
+      labels: locations,
+      datasets: [{
+        label: 'Total New Deaths',
+        data: totalDeaths,
+        backgroundColor: 'rgba(255, 99, 132, 0.6)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1,
+      }],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Total New Deaths',
           },
-        });
-      }
-  
-      // Call the updateBarChartCases function to initialize the bar chart for total new cases
-      updateBarChartCases();
-  
-      // Fetch the data from Firebase and update the bar chart for total new deaths
-      async function updateBarChartDeaths() {
-        const querySnapshot = await getDocs(collection(db, "covid-test"));
-        const locationData = {};
-  
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          const location = data.Location;
-          const newDeaths = parseInt(data.NewDeaths);
-  
-          if (locationData[location]) {
-            locationData[location] += newDeaths;
-          } else {
-            locationData[location] = newDeaths;
-          }
-        });
-  
-        const locations = Object.keys(locationData).sort(); // Sort locations alphabetically
-        const totalDeaths = Object.values(locationData);
-  
-        // Create the bar chart for total new deaths
-        new Chart(document.getElementById('bar-chart-deaths'), {
-          type: 'bar',
-          data: {
-            labels: locations,
-            datasets: [{
-              label: 'Total New Deaths',
-              data: totalDeaths,
-              backgroundColor: 'rgba(255, 99, 132, 0.6)',
-              borderColor: 'rgba(255, 99, 132, 1)',
-              borderWidth: 1,
-            }],
-          },
-          options: {
-            responsive: true,
-            scales: {
-              y: {
-                beginAtZero: true,
-                title: {
-                  display: true,
-                  text: 'Total New Deaths',
-                },
-              },
-            },
-          },
-        });
-      }
-  
-      // Call the updateBarChartDeaths function to initialize the bar chart for total new deaths
-      updateBarChartDeaths();
+        },
+      },
+    },
+  });
+}
+
+// Call the updateBarChartDeaths function to initialize the bar chart for total new deaths
+updateBarChartDeaths();
+
 
       // Fetch the data from Firebase and update the pie chart
 async function updatePieChart() {
