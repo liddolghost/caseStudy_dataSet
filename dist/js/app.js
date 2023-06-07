@@ -6,16 +6,16 @@ import { getFirestore, collection, addDoc, getDocs  } from "https://www.gstatic.
  // TODO: Add SDKs for Firebase products that you want to use
  // https://firebase.google.com/docs/web/setup#available-libraries
  
- // Your web app's Firebase configuration
- // For Firebase JS SDK v7.20.0 and later, measurementId is optional
- const firebaseConfig = {
- apiKey: "AIzaSyCzf803qRjCMmK9wGhzPs68WLUZKr-M42M",
- authDomain: "casestudy-1c77a.firebaseapp.com",
- projectId: "casestudy-1c77a",
- storageBucket: "casestudy-1c77a.appspot.com",
- messagingSenderId: "743404711750",
- appId: "1:743404711750:web:fffdbd353973f645397f47",
- measurementId: "G-YX6H49NVFB"
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAnaFRqleoDNpz61gbFyTuuuWLLra1QJU4",
+  authDomain: "coviddata-ff21d.firebaseapp.com",
+  projectId: "coviddata-ff21d",
+  storageBucket: "coviddata-ff21d.appspot.com",
+  messagingSenderId: "669024748294",
+  appId: "1:669024748294:web:a48f05cadf5d40324b1487",
+  measurementId: "G-2R5ZX8GRSL"
 };
  
  // Initialize Firebase
@@ -193,13 +193,3 @@ const toTimestamp = (strDate) => {
 //   tbl.deleteRow(row);
 
 // }
-
-
-
-
-
-
-
-
-
-

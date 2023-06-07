@@ -112,6 +112,12 @@
             </nav>
             <!-- Navbar End -->
 
+            <div class="container-fluid pt-4 px-4">
+              <div class="row g-4">
+                <h4>Cases & Deaths: April 1-7, 2020</h4>
+              </div>
+            </div>
+
 
             <!-- Card Started -->
             
@@ -120,7 +126,7 @@
 
                   <div class="col-sm-6 col-xl-3">
                     <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                        <i class="fa fa-database fa-3x text-primary"></i>
+                        <i class="fa fa-server fa-3x text-primary"></i>
                         <div class="ms-3">
                             <p class="mb-2" id="total-input">0<br><span>Calculating Inputs...</span></p>
                         </div>
@@ -128,7 +134,7 @@
                   </div>          
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-globe fa-3x text-primary"></i>
+                            <i class="fa fa-location-arrow fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2" id="total-location">0<br><span>Calculating Locations...</span></p>
                             </div>
@@ -136,7 +142,7 @@
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-book-medical fa-3x text-primary"></i>
+                            <i class="fa fa-briefcase-medical fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2" id="total-cases">0<br><span>Calculating Cases...</span></p>
                                 
@@ -145,7 +151,7 @@
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-book-dead fa-3x text-primary"></i>
+                            <i class="fa fa-skull-crossbones fa-3x text-primary"></i>
                             <div class="ms-3">
                                 <p class="mb-2" id="total-deaths">0<br><span>Calculating Deaths...</span></p>
                             
@@ -198,11 +204,19 @@
                 <div class="col-sm-12 col-md-6 col-xl-4">
                     <div class="h-100 bg-secondary rounded p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Calender</h6>
+                            <h6 class="mb-0">Calendar</h6>
                         </div>
                         <div id="calender"></div>
                     </div>
                 </div>
+
+                <div class="col-sm-12 col-xl-6">
+                  <div class="bg-secondary rounded h-100 p-4">
+                    <h6 class="mb-4">Total Cases and Deaths per day</h6>
+                    <canvas id="line-chart"></canvas>
+                  </div>
+                </div> 
+
             </div>
           </div>
         <!-- Widgets End -->
@@ -242,7 +256,7 @@
                 <div class="bg-secondary rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Ustoqna bumitaw</a>, All Right Reserved. 
+                            &copy; <a href="#">U_U:Ustoqna Umiyaq</a>, All Right Reserved. 
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
@@ -260,10 +274,6 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-
-
-
-    <!-- <script type="module" src="js/graph.js"></script> -->
 
     <!-- Firebase SDK -->
     <!-- Required to import here in html because of using snapshot/onsnapshot function -->
@@ -681,6 +691,85 @@ updatePieChart();
 
   // Call the updateDoughnutChart function to initialize the doughnut chart
   updateDoughnutChart();
+
+
+    // Fetch data from Firestore and calculate the total new cases and new deaths by unique dates
+async function getDataByDate() {
+  const querySnapshot = await getDocs(collection(db, "covid-test"));
+  const dataByDate = {};
+
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    const date = data.Date;
+    const newCases = parseInt(data.NewCases);
+    const newDeaths = parseInt(data.NewDeaths);
+
+    if (dataByDate[date]) {
+      dataByDate[date].cases += newCases;
+      dataByDate[date].deaths += newDeaths;
+    } else {
+      dataByDate[date] = {
+        cases: newCases,
+        deaths: newDeaths,
+      };
+    }
+  });
+
+  return dataByDate;
+}
+
+// Update the multiple line chart with the data by date
+async function updateLineChart() {
+  const dataByDate = await getDataByDate();
+  const dates = Object.keys(dataByDate).sort(); // Sort dates in ascending order
+  const casesData = dates.map((date) => dataByDate[date].cases);
+  const deathsData = dates.map((date) => dataByDate[date].deaths);
+
+  // Create the multiple line chart
+  new Chart(document.getElementById("line-chart"), {
+    type: "line",
+    data: {
+      labels: dates,
+      datasets: [
+        {
+          label: "Total New Cases",
+          data: casesData,
+          borderColor: "rgba(54, 162, 235, 1)",
+          backgroundColor: "rgba(54, 162, 235, 0.2)",
+          fill: true,
+        },
+        {
+          label: "Total New Deaths",
+          data: deathsData,
+          borderColor: "rgba(255, 99, 132, 1)",
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          fill: true,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "Date",
+          },
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: "Total",
+          },
+        },
+      },
+    },
+  });
+}
+
+// Call the updateLineChart function to initialize the multiple line chart
+updateLineChart();
 
       }); // nag end ang DOMContentLoaded
 

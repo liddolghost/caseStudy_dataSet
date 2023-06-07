@@ -5,13 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>༊*·˚Registration</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="./css/loginstyle.css">
     <script defer src="./bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
     <script src="https://kit.fontawesome.com/edf086d819.js" crossorigin="anonymous"></script>
     <!-- Bootstrap theme -->
+    <style>
+      /*-----------------------------------*\
+      #HEADER
+      \*-----------------------------------*/
+
+      .header .btn { display: none; }
+
+      .header {
+        background-color: var(--oxford-blue);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-block: 12px;
+        box-shadow: var(--shadow-1);
+        z-index: 4;
+      }
+
+      .header.active {
+        position: fixed;
+        animation: slideInTop 0.5s ease forwards;
+      }
+
+      @keyframes slideInTop {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(0); }
+      }
+
+      .header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    </style>
 </head>
 <body>
+  <header class="header" data-header>
+    <div class="container1">
+      <a href="index.html" class="logo">
+        <img src="./assets/images/logo.svg" width="199" height="50" alt="Covid-19 home">
+      </a>
+    </div>
+  </header>
     <section>
           <div class="box"> 
               <div class="square" style="--i:0;"></div>
@@ -21,18 +62,19 @@
               <div class="square" style="--i:4;"></div>
               <div class="container">
                   <div class="form">
-                      <h2>Registration Form</h2>
+                      <h2>User Registration.</h2>
                       <form name="registration_form" id="registration_form" method="post" action="#" enctype="multipart/form-data" >
                           <div class="inputBox">
-                            <input type="text" name="email" id="email" class="form-control" placeholder="Enter your email">
+                            <input type="text" name="email" id="email" class="form-control" placeholder="Enter desired email">
                           </div>
                           <div class="inputBox">
-                            <input type="password" name="password" id="password" class="form-control"  placeholder="Enter your password">
+                            <input type="password" name="password" id="password" class="form-control"  placeholder="Enter secret password">
                           </div>
                           <div class="inputBox">
                             <button type="button" id="register" name="register" class="btn btn-success">Register Now</button>
                           </div>
-                          <p class="forget">Already have an account ? <a href="login.html">Login</a> </p>
+                          <p class="forget">Already an admin ? <a href="login.html">Login</a> </p>
+                          <p class="forget"><a href="index.html">Back to Home</a></p>
                       </form>
                       <!--
                       <p>or sign up with</p>
@@ -43,8 +85,8 @@
           </div>
       </section>
 
-      <script src="./app.js" type="module"></script>
-      <script src="./register.js" type="module"></script>
+      <script src="./js/app.js" type="module"></script>
+      <script src="./js/register.js" type="module"></script>
 
 </body>
 </html> 

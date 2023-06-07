@@ -34,13 +34,13 @@ const firebaseConfig = {
 onSnapshot(collection(db, "covid-test"), (querySnapshot) => {
   table.clear(); // clear existing data in the table
 
-querySnapshot.forEach((doc) => {
-  const data = doc.data();
-  const editButton = `<button type="button" class="btn btn-primary edit" data-id="${doc.id}" data-isocode="${data.IsoCode}" data-location="${data.Location}" data-date="${data.Date}" data-new-cases="${data.NewCases}" data-new-deaths="${data.NewDeaths}" data-toggle="modal" data-target="#edit-modal">Edit </button>  `;
-  const deleteButton = `<button type="button" class="btn btn-danger delete" data-id="${doc.id}" data-toggle="modal" data-target="#delete-modal">Delete</button>`;
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+    const editButton = `<button type="button" class="btn btn-primary edit" data-id="${doc.id}" data-isocode="${data.IsoCode}" data-location="${data.Location}" data-date="${data.Date}" data-new-cases="${data.NewCases}" data-new-deaths="${data.NewDeaths}" data-toggle="modal" data-target="#edit-modal">Edit </button>  `;
+    const deleteButton = `<button type="button" class="btn btn-danger delete" data-id="${doc.id}" data-toggle="modal" data-target="#delete-modal">Delete</button>`;
 
-     // Display the data in the table
-     table.row.add([
+    // Display the data in the table
+    table.row.add([
       data.IsoCode,
       data.Location,
       data.Date,
@@ -93,11 +93,11 @@ $(document).on('click', '#update-button', function () {
    // show success message before updating the data
    alert('Update Success bhie');
    //$('#edit-modal').modal('hide'); // Hide the modal after updating
-  location.reload();
+   //location.reload();
    // basta kaning tulo ang ning work for me UwU
 
      // Update the data in Firestore
-  updateDoc(doc(db, 'covid-test', docId), newData)
+     updateDoc(doc(db, 'covid-test', docId), newData)
     .then(() => {
             // Add activity log document
       const activityLogCollection = collection(db, "covidtest-activitylog");
@@ -111,22 +111,22 @@ $(document).on('click', '#update-button', function () {
         .then(() => {
           console.log("Activity Log Added");
           alert('Update success');
-          $('#edit-modal').modal('hide'); // Hide the modal after updating
-          location.reload();  // Reload the page to reflect the updated data
+          //$('#edit-modal').modal('hide'); // Hide the modal after updating
+          //location.reload();  // Reload the page to reflect the updated data
         })
         .catch((error) => {
           console.error("Error adding activity log: ", error);
           updateError(error.message);
          // $('#edit-modal').modal('hide'); // Hide the modal on error
         });
-    })
+    }) 
     .catch((error) => {
       console.error("Error updating record: ", error);
       console.log("Error message: ", error.message);
       updateError(error.message);
       //$('#edit-modal').modal('hide'); // Hide the modal on error
-    });
-});
+    }); 
+}); // from $(document).on('click', '#update-button', function () {
 
 
 
