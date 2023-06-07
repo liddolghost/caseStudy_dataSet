@@ -112,12 +112,14 @@
             </nav>
             <!-- Navbar End -->
 
+            <!---
+
             <div class="container-fluid pt-4 px-4">
               <div class="row g-4">
                 <h4>Cases & Deaths: April 1-7, 2020</h4>
               </div>
             </div>
-
+          -->
 
             <!-- Card Started -->
             
@@ -449,7 +451,7 @@
 
 
         // Fetch the data from Firebase and update the bar chart for total new cases
-      async function updateBarChartCases() {
+        async function updateBarChartCases() {
         const querySnapshot = await getDocs(collection(db, "covid-test"));
         const locationData = {};
   
