@@ -10,49 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
     <script src="https://kit.fontawesome.com/edf086d819.js" crossorigin="anonymous"></script>
     <!-- Bootstrap theme -->
-    <style>
-      /*-----------------------------------*\
-      #HEADER
-      \*-----------------------------------*/
-
-      .header .btn { display: none; }
-
-      .header {
-        background-color: var(--oxford-blue);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding-block: 12px;
-        box-shadow: var(--shadow-1);
-        z-index: 4;
-      }
-
-      .header.active {
-        position: fixed;
-        animation: slideInTop 0.5s ease forwards;
-      }
-
-      @keyframes slideInTop {
-        0% { transform: translateY(-100%); }
-        100% { transform: translateY(0); }
-      }
-
-      .header .container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-    </style>
 </head>
 <body>
-  <header class="header" data-header>
-    <div class="container1">
-      <a href="index.html" class="logo">
-        <img src="./assets/images/logo.svg" width="199" height="50" alt="Covid-19 home">
-      </a>
-    </div>
-  </header>
     <section>
           <div class="box"> 
               <div class="square" style="--i:0;"></div>
